@@ -11,6 +11,10 @@
 (defun pos-int-range (nr upper-limit)
   (and (positive-integer-p nr) (<= nr upper-limit)))
 
+(defun word-p (nr)
+  "is nr within (positive) word range?"
+  (pos-int-range nr #xFFFFFFFF))
+
 (defun non-neg-int-range (nr upper-limit)
   (and (non-neg-integer-p nr) (<= nr upper-limit)))
 

@@ -9,6 +9,7 @@
    :positive-integer-p
    :non-neg-integer-p
    :pos-int-range
+   :word-p
    :non-neg-int-range
    :negate
    :ensure-non-negative
