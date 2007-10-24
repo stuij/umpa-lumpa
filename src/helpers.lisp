@@ -97,6 +97,14 @@
         byte-lst
         (append byte-lst (make-list (- (if bytes bytes 4) offset) :initial-element 0)))))
 
+(defun right-shift-power-of-ten (nr power)
+          (/ (- nr (rem nr power)) power))
+
+(defun pick-power-of-ten (nr power)
+  "(pick-power-of-ten 4321 3) => 3"
+  (let ((expt (expt 10 power)))
+    (right-shift-power-of-ten (mod nr expt) (/ expt 10))))
+
 (defun process-output (process)
   #+allegro (third process)
   #+cmu (ext:process-output process)

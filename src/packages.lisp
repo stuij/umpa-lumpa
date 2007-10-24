@@ -21,6 +21,8 @@
    :big-endian-octets-to-nr
    :big-endian-word-byte-list-to-nr
    :big-endian-halfword-byte-list-to-nr
+   :pick-power-of-ten
+   :right-shift-power-of-ten
    :ror-word
    :rol-word
    :encode-twos-complement
