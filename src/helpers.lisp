@@ -124,6 +124,9 @@
   "they don't come much more simpler"
   (loop for s across sequence collect s))
 
+(defun break-show (&rest objs)
+  (break "~{~A ~}" objs))
+
 ;; from norvig
 (defun concat-symbol (&rest args)
   "Concatenate symbols or strings to form an interned symbol"

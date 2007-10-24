@@ -23,6 +23,7 @@
    :big-endian-halfword-byte-list-to-nr
    :pick-power-of-ten
    :right-shift-power-of-ten
+   :break-show
    :ror-word
    :rol-word
    :encode-twos-complement
