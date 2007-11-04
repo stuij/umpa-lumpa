@@ -1,0 +1,26 @@
+** Umpa-Lumpa - here to serve
+
+Umpa-Lumpa is just a small collection of helper functions to general to
+put in an individual project (exept for projects so general as Umpa-Lumpa).
+The bulk of them have to do with low-level programming. 
+
+
+** Licence - LLGPL, see the included LICENSE file
+
+
+** Authors
+
+- Ties Stuij
+
+
+** Installation
+
+To get the latest development version, do a darcs get:
+
+darcs get http://common-lisp.net/project/liards/darcs/umpa-lumpa
+
+Umpa-Lumpa depends on Arnesi:
+
+darcs get http://common-lisp.net/project/bese/repos/arnesi_dev
+
+Get them to play nice with asdf and fire up Umpa-Lumpa.
