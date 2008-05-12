@@ -128,6 +128,16 @@
 (defun break-show (&rest objs)
   (break "~{~A ~}" objs))
 
+(defun convert-to-intern (extern-list-maybe &optional package)
+  (if (symbolp extern-list-maybe)
+      (if package
+          (intern (format nil "~a" extern-list-maybe) package)
+          (intern (format nil "~a" extern-list-maybe)))
+      (loop for aspirant in extern-list-maybe
+         collect (if package
+                     (intern (format nil "~a" aspirant) package)
+                     (intern (format nil "~a" aspirant))))))
+
 ;; from norvig
 (defun concat-symbol (&rest args)
   "Concatenate symbols or strings to form an interned symbol"
