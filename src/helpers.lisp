@@ -72,16 +72,17 @@
                #xffffffff)
        (ash (logand #xffffffff00000000 ashed) -32))))
 
-(defun encode-twos-complement (nr bits)
+(defun within-twos-complement-range-p (nr bits)
   (let* ((bit-max (1- (ash 1 bits)))
          (nr-max (ash bit-max -1)))
+    (and (<= (negate nr) (1+ nr-max)) (<= nr nr-max))))
+
+(defun encode-twos-complement (nr bits)
+  (assert (within-twos-complement-range-p nr bits))
+  (let ((bit-max (1- (ash 1 bits))))
     (if (minusp nr)
-        (let ((negated (negate nr)))
-          (assert (<= negated (1+ nr-max)))
-          (- bit-max (1- negated)))
-        (progn
-          (assert (<= nr nr-max))
-          nr))))
+        (- bit-max (1- (negate nr)))
+        nr)))
 
 (defun aligned (address &optional bytes)
   "Returns the next bytes byte aligned address. Defaults to 4."
@@ -98,7 +99,7 @@
         (append byte-lst (make-list (- (if bytes bytes 4) offset) :initial-element 0)))))
 
 (defun right-shift-power-of-ten (nr power)
-          (/ (- nr (rem nr power)) power))
+  (/ (- nr (rem nr power)) power))
 
 (defun pick-power-of-ten (nr power)
   "(pick-power-of-ten 4321 3) => 3"
