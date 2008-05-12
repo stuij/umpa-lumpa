@@ -26,6 +26,7 @@
    :break-show
    :ror-word
    :rol-word
+   :within-twos-complement-range-p
    :encode-twos-complement
    :aligned
    :align
@@ -38,4 +39,6 @@
    :class-slot-names
    :copy-hash
    :nthcadr
-   :fragment))
+   :fragment
+   :dotted-p
+   :convert-to-intern))
