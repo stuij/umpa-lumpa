@@ -192,3 +192,10 @@
   (if (< (length txt) max-length)
       (or txt "")
       (format t "~a..." (subseq txt 0 max-length))))
+
+(defun dotted-p (cons)
+  (if (not (consp cons))
+      nil
+      (if (cdr (last cons))
+          t
+          nil)))
